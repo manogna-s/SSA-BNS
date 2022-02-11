@@ -21,6 +21,15 @@ def get_model(num_classes, args):
         base_network_path = os.path.join(PROJECT_ROOT, 'weights', base_network_name, 'model_best.pth.tar')
         model_fn = partial(resnet18, dropout=dropout_rate,
                            pretrained_model_path=base_network_path)
+    elif 'mixstyle' in model_name:
+        from models.resnet18_mixstyle import resnet18_mixstyle
+        model_fn = partial(resnet18_mixstyle, dropout=dropout_rate)
+    elif 'imix' in model_name:
+        from models.resnet18_imix import resnet18_imix
+        model_fn = partial(resnet18_imix, dropout=dropout_rate)
+    elif 'mixnoise' in model_name:
+        from models.resnet18_imixv2 import resnet18_imixv2
+        model_fn = partial(resnet18_imixv2, dropout=dropout_rate)
     else:
         from models.resnet18 import resnet18
         model_fn = partial(resnet18, dropout=dropout_rate)

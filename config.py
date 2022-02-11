@@ -1,6 +1,8 @@
 import argparse
 parser = argparse.ArgumentParser(description='Train prototypical networks')
 
+#log 
+parser.add_argument('--log', type=str, default='logs/')
 # data args
 parser.add_argument('--data.train', type=str, default='cu_birds', metavar='TRAINSETS', nargs='+', help="Datasets for training extractors")
 parser.add_argument('--data.val', type=str, default='cu_birds', metavar='VALSETS', nargs='+',
@@ -21,7 +23,7 @@ parser.add_argument('--model.dropout', type=float, default=0, help="Adding dropo
 # train args
 parser.add_argument('--train.batch_size', type=int, default=16, metavar='BS',
                     help='number of images in a batch')
-parser.add_argument('--train.max_iter', type=int, default=500000, metavar='NEPOCHS',
+parser.add_argument('--train.max_iter', type=int, default=10, metavar='NEPOCHS',
                     help='number of epochs to train (default: 10000)')
 parser.add_argument('--train.weight_decay', type=float, default=7e-4, metavar='WD',
                     help="weight decay coef")
@@ -64,7 +66,7 @@ parser.add_argument('--dump.size', type=int, default=600, metavar='DUMP_SIZE',
 
 
 # test args
-parser.add_argument('--test.size', type=int, default=600, metavar='TEST_SIZE',
+parser.add_argument('--test.size', type=int, default=100, metavar='TEST_SIZE',
                     help='The number of test episodes sampled')
 parser.add_argument('--test.distance', type=str, choices=['cos', 'l2'], default='cos', metavar='DISTANCE_FN',
                     help="If to augment support images in order to avearge the embeddings")
