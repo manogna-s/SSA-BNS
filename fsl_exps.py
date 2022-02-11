@@ -77,7 +77,7 @@ def finetune_bn_cls(args, episode, base_model):
     model = configure_model(model)
     bn_params, bn_param_names = collect_params(model)
     cls_params = model.cls_fn.parameters()
-    optimizer = torch.optim.Adam(list(bn_params)+list(cls_params), lr=0.005)
+    optimizer = torch.optim.Adam(list(bn_params)+list(cls_params), lr=args['train.learning_rate'])
 
     for t in range(args['train.max_iter']):
         optimizer.zero_grad()
@@ -128,7 +128,7 @@ def mixstyle_finetune_bn_cls(args, episode, base_model):
     model = configure_model(model)
     bn_params, bn_param_names = collect_params(model)
     cls_params = model.cls_fn.parameters()
-    optimizer = torch.optim.Adam(list(bn_params)+list(cls_params), lr=0.005)
+    optimizer = torch.optim.Adam(list(bn_params)+list(cls_params), lr=args['train.learning_rate'])
 
     for t in range(args['train.max_iter']):
         optimizer.zero_grad()
@@ -166,7 +166,7 @@ def imix_finetune_bn_cls(args, episode, base_model):
     model = configure_model(model)
     bn_params, bn_param_names = collect_params(model)
     cls_params = model.cls_fn.parameters()
-    optimizer = torch.optim.Adam(list(bn_params)+list(cls_params), lr=0.005)
+    optimizer = torch.optim.Adam(list(bn_params)+list(cls_params), lr=args['train.learning_rate'])
 
     for t in range(args['train.max_iter']):
         optimizer.zero_grad()
@@ -228,7 +228,7 @@ def finetune_Bayesian_bn_cls(args, episode, base_model, prior):
     model = configure_model(model)
     bn_params, bn_param_names = collect_params(model)
     cls_params = model.cls_fn.parameters()
-    optimizer = torch.optim.Adam(list(bn_params)+list(cls_params), lr=0.005)
+    optimizer = torch.optim.Adam(list(bn_params)+list(cls_params), lr=args['train.learning_rate'])
 
     for t in range(args['train.max_iter']):
         optimizer.zero_grad()
@@ -267,7 +267,7 @@ def mixstyle_Bayesian_bn_cls(args, episode, base_model, prior):
     model = configure_model(model)
     bn_params, bn_param_names = collect_params(model)
     cls_params = model.cls_fn.parameters()
-    optimizer = torch.optim.Adam(list(bn_params)+list(cls_params), lr=0.005)
+    optimizer = torch.optim.Adam(list(bn_params)+list(cls_params), lr=args['train.learning_rate'])
 
     for t in range(args['train.max_iter']):
         optimizer.zero_grad()
@@ -304,7 +304,7 @@ def imix_Bayesian_bn_cls(args, episode, base_model, prior):
     model = configure_model(model)
     bn_params, bn_param_names = collect_params(model)
     cls_params = model.cls_fn.parameters()
-    optimizer = torch.optim.Adam(list(bn_params)+list(cls_params), lr=0.005)
+    optimizer = torch.optim.Adam(list(bn_params)+list(cls_params), lr=args['train.learning_rate'])
 
     for t in range(args['train.max_iter']):
         optimizer.zero_grad()
@@ -378,7 +378,7 @@ def finetune_bn_stoch_cls(args, episode, base_model):
     model = configure_model(model)
     bn_params, bn_param_names = collect_params(model)
     cls_params = model.cls_fn.parameters()
-    optimizer = torch.optim.Adam(list(bn_params)+list(cls_params), lr=0.005)
+    optimizer = torch.optim.Adam(list(bn_params)+list(cls_params), lr=args['train.learning_rate'])
 
     for t in range(args['train.max_iter']):
         optimizer.zero_grad()
