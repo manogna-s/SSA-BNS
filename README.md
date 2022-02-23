@@ -37,6 +37,11 @@ python ./finetune.py --model.name=url --model.backbone=resnet18 --data.test traf
 python ./bn_finetune.py --model.name=url --model.backbone=resnet18 --data.test traffic_sign mnist --train.max_iter 50 --train.learning_rate 0.001
 ```
 
+## Prototypical network based fine-tuning 
+Trainable params: batch norm parameters
+```
+python prototypical_network.py --data.test cifar10 --model.name url --log logs/cifar10 --test.size 50 --train.max_iter 50 --train.learning_rate 0.001
+```
 
 #### References
 - [SUR](https://github.com/dvornikita/SUR)
